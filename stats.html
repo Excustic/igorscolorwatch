@@ -84,7 +84,7 @@
             var dict = allStorage();
             console.log(dict);
             for (const [key, value] of Object.entries(dict)) {
-                div_stats += '<tr><th>'+key+'</th><th>'+value.wrong+'</th><th>'+value.correct+'</th><th>'+Number((value.correct/(value.correct+value.wrong))*100).toFixed(2)+'</th></tr>';
+                div_stats += '<tr><th>'+key+'</th><th>'+value.wrong+'</th><th>'+value.correct+'</th><th>'+Number((value.correct/(value.correct+value.wrong))*100).toFixed(2)+'%</th></tr>';
             }
             var total_wrong = parseInt(localStorage.getItem('wrong')), total_correct = parseInt(localStorage.getItem('correct'));
             div_stats += '<tr><th>Total</th><th>'+total_wrong+'</th><th>'+total_correct+'</th><th>'+Number((total_correct/(total_correct+total_wrong))*100).toFixed(2)+'%</th></tr>';
@@ -95,7 +95,7 @@
             while ( i-- ) {
                 if(keys[i].endsWith("_correct") || keys[i].endsWith("_wrong"))
                 {
-                var keyname = keys[i].split('_')[0].split('T')[0];
+                var keyname = keys[i].split('_')[0];
                 var valtype = keys[i].split('_')[1];
                 if(values[keyname] == undefined)
                 values[keyname]={"correct": 0, "wrong": 0};

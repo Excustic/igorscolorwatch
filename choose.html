@@ -64,6 +64,7 @@
         <div id="input_wrapper" style="display: flex; justify-content: center; align-self: center;">
             <input id="center_input" type="text" placeholder="Input here" style="max-width: 60%; color:white;text-align: center; background-color: transparent; position: absolute; top: 40%; font-size: 6em;">
         </div>
+        
         <div style="display: flex; justify-content: center; align-self: center;">
             <button id="submit_button" onclick="checkAns()" style="position: absolute; bottom: 10%; background-color:rgba(232, 232, 227, 0); color: white; font-family:'Didact Gothic'; border: transparent; font-size: 4em;">Submit</button>
         </div>
@@ -104,12 +105,7 @@
             document.body.style.backgroundColor = picked_color;
             var pos = parseInt(localStorage.getItem("previousPosition")) | 0;
             changeScreen(pos);
-            var date = new Date();
-            date.setHours(0);
-            date.setMinutes(0);
-            date.setSeconds(0);
-            date.setMilliseconds(0);
-            const isoDateString = date.toISOString();
+            const isoDateString = new Date().toLocaleDateString('he-IL');
             function prevScreen(){
                 if(pos == 0)
                     pos = 3;
